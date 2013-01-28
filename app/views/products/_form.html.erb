@@ -1,0 +1,29 @@
+<% if product.errors.any? %>
+  <h3 class="message" style="top:100px">Uppss we have a problem</h3>
+<% end %>
+
+<div style="position: absolute; top: 120px; left:50px">
+<%= form_for product do |f| %>
+  <%= f.label :name, :class => "text" %><br>
+  <%= f.text_field :name %>
+  <p>
+
+  <%= f.label :category_id, :class => "text" %><br>
+  <%= collection_select :product, :category_id, categories, :id, :name %>
+  <p>
+
+  <%= f.label :description, :class => "text" %><br>
+  <%= f.text_area :description, cols: 24, rows: 5 %>
+  <p>
+
+  <%= f.label :price, :class => "text" %><br>
+  <%= f.text_field :price %>
+  <p>
+
+  <%= f.label :active, :class => "text" %>
+  <%= f.check_box :active, checked_value: true, unchecked_value: false %>
+  <p>
+
+  <%= f.submit 'Save', :id => "class" %>
+<% end %>
+</div>

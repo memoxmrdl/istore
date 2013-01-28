@@ -1,0 +1,28 @@
+<div style="position:absolute; top:50px; left:50px"><h1 class="title">Variants to producto</h1></div>
+<div style="position:absolute; top:120px; left:460px">
+  <%= link_to 'New variant to product', new_product_variant_path, :class => "ui-icon ui-icon-document"%>
+</div>
+
+<span style="position:absoute;" class="message"><%= flash[:notice] %></span>
+
+<% unless @variants.nil?  %>
+<div style="position: absolute; top:120px; left:50px">
+  <table border="0">
+    <tr style="background: #eee; text-align: center; font-family: Arial; font-size: 9px;">
+      <td style="width: 250px;">Name</td>
+      <td style="width: 100px;">Color</td>
+      <td>Edit</td>
+      <td>Delete</td>
+    </tr>
+    <% @variants.each do |variant| %>
+        <tr style="font-family: arial; font-size: 14px;">
+          <td><%= variant.name %></td>
+          <td ><%= variant.color %></td>
+          <td style="text-align: center;"><%= link_to "Edit", edit_product_variant_path(product_id:params[:product_id], id:variant.id), :class => "ui-icon ui-icon-pencil" %></td>
+          <td style="text-align: center;"><%= link_to "Delete", product_variant_path(product_id:params[:product_id], id:variant.id), :class => "ui-icon ui-icon-trash" %></td>
+        </tr>
+    <% end %>
+  </table>
+<% end %>
+</div>
+<div style="position:absolute; top:50px; left:50px"><a href="/products/" class="ui-icon ui-icon-seek-prev"></a></div>

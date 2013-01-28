@@ -1,0 +1,27 @@
+<div style="position:absolute; top:50px; left:50px"><h1 class="title">Product</h1></div>
+<% if @product.nil? %>
+    <div style="position:absolute; top:50px; left:50px"><h1 class="title">Product not found</h1></div>
+<% else %>
+    <div style="position:absolute; top:120px; left:483px">
+    <%= link_to '<span class="ui-icon ui-icon-newwin"></span>', edit_product_path(@product), :class => "ui-icon ui-icon-pencil" %>
+    </div>
+
+    <div style="position: absolute; top: 120px; left:50px">
+    <table border="0">
+      <tr style="background: #eee; text-align: center; font-family: Arial; font-size: 9px;">
+        <td style="width: 250px;">Name</td>
+        <td>Category</td>
+        <td>Description</td>
+        <td>Price</td>
+      </tr>
+      <tr style="text-align: center; font-family: Arial; font-size: 9px;">
+        <td style="width: 250px;"><%= @product.name %></td>
+        <td><%= @product.try(:category).try(:name) %></td>
+        <td style="width: 100px;"><%= @product.description %></td>
+        <td><%= @product.price %></td>
+      </tr>
+    </table>
+    </div>
+<% end %>
+<div style="position:absolute; top:50px; left:50px"><%= link_to 'Back', :back, :class => "ui-icon ui-icon-seek-prev" %></div>
+

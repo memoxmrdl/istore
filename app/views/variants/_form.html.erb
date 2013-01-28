@@ -1,0 +1,16 @@
+<% if variant.errors.any? %>
+    <h3 class="message" style="top:100px">Uppss we have a problem</h3>
+<% end %>
+
+<div style="position: absolute; top:120px; left:50px">
+  <%= form_for [:product, variant] do |f| %>
+      <%= f.label :name %><br>
+      <%= f.text_field :name %>
+      <p>
+        <%= f.label :color %><br>
+        <%= f.text_field :color %>
+      <p></p>
+      <%= f.submit 'Save' %>
+  <% end %>
+</div>
+<div style="position:absolute; top:50px; left:50px"><%= link_to 'Back', :back, :class => "ui-icon ui-icon-seek-prev" %></div>

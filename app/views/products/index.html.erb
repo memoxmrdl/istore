@@ -1,0 +1,25 @@
+
+<div style="position:absolute; top:50px; left:50px"><h1 class="title">Product List</h1></div>
+<div style="position:absolute; top:120px; left:370px">
+    <%= link_to 'New product', new_product_path, :class => "ui-icon ui-icon-document"%>
+</div>
+
+
+<span style="position:absolute;" class="message"><%= flash[:notice] %></span>
+
+<div style="position: absolute; top:120px; left:50px">
+  <table border="0">
+    <tr style="background: #eee; text-align: center; font-family: Arial; font-size: 9px;">
+      <td style="width: 250px;">Name</td>
+      <td>Show</td>
+      <td>Variants</td>
+    </tr>
+  <% @products.each do |product| %>
+    <tr style="font-family: arial; font-size: 14px;">
+      <td><%= product.name %></td>
+      <td style="text-align: center;"><%= link_to "Show", product, :class => "ui-icon ui-icon-search" %></td>
+      <td style="text-align: center;"><%= link_to "Variants", product_variants_path(product), :class => "ui-icon ui-icon-link" %></td>
+    </tr>
+  <% end %>
+  </table>
+</div>
